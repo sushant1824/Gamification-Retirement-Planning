@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Investment Calculator" />
+    <title>Investment Calculator</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="dependency/bootstrap.min.css" media="all" />
+    <link rel="stylesheet" href="dependency/fontawesome.min.css" media="all" />
+    <link rel="stylesheet" href="styles6.css" media="all" />
+</head>
+
+<body>
+
+    <!-- TODOS:
+        add tooltips
+    -->
+
+    <div class="toggle-btns text-right">
+        <a id="toggleLight" href="javascript:void(0)">☀</a>
+        <a id="toggleDark" href="javascript:void(0)">🌑</a>
+    </div>
+
+    <div class="container">
+        <h1 class="text-center mb-3">Investment Calculator</h1>
+
+        <div class="col-md-12 inputs">
+            <h2 class="text-center mb-3"><i class="far fa-money-bill-alt"></i> Input Amounts</h2>
+            <form>
+                <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                        <label for="startingBal"><i class="fas fa-dollar-sign"></i> Starting Balance</label>
+                        <input type="number" class="form-control" id="startingBalance" value="1000" min="1"
+                            max="999999999">
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <label for="expectedReturn"><i class="fas fa-percentage"></i> Expected Return (%)</label>
+                        <input type="number" class="form-control" id="expectedReturn" value="6" min="1" max="100">
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <label for="monthlyDep"><i class="far fa-calendar-alt"></i> Monthly Deposit</label>
+                        <input type="number" class="form-control" id="monthlyDeposit" value="100" min="1"
+                            max="999999999">
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <label for="duration"><i class="far fa-clock"></i> Duration (years)</label>
+                        <input type="number" class="form-control" id="duration" value="5" min="1" max="999">
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <button type="submit" class="btn btn-primary my-4 m-auto" id="submit">
+                        Calculate Balance
+                    </button>
+                </div>
+            </form>
+            <button type="button"><a href="Compoundgrowth.html">Lets calculate growth</a></button>
+        </div>
+
+
+    <script src="dependency/chartjs.min.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/theme.js"></script>
+    
+</body>
+
+</html>

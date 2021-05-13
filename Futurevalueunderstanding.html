@@ -1,0 +1,64 @@
+<html>
+<head>
+  <title>Future Value Calculation</title>
+  <style type = "text/css">
+  table {
+    width: 80%;
+    border-collapse: collpase;
+  }
+  td {
+    border: 1px inset gray;
+    padding: 4px;
+  }
+  th {
+    border: 1px inset brown;
+    padding: 4px;
+  }
+  input { text-align: right; }
+  .left { text-align: left; }
+  .center { text-align: center; }
+  .right { text-align: right; }
+  </style>
+  <script type = "text/javascript">
+    var principal = 2000;
+    var rate = .12;
+    var deposit = 100;
+    var age = 50;
+
+    document.writeln("<h3>Future Value Calculation</h3>");
+    document.writeln("Initial Investment: $"+principal+"<br/>");
+    document.writeln("Interest Rate: "+(rate*100)+"%<br/>");
+    document.writeln("Deposite every 30 days: $"+deposit+"<br/>");
+    document.writeln("Invesment Started: "+age+"<br/>");
+    document.writeln("<table>" );
+    document.writeln("<tr><th>Age</th>");
+    document.writeln("<th>Begin Bal.</th>");
+    document.writeln("<th>Interest</th>");
+    document.writeln("<th>Deposit</th>");
+    document.writeln("<th>End Bal.</th></tr>");
+    var EndBal, interest;
+    for ( var currAge=age; currAge<=65; currAge++ ) {
+      document.writeln("<tr>");
+      document.writeln("<td class='center'>"+currAge+"</td>");
+      document.writeln("<td class='right'>"+principal.toFixed(2)+"</td>");
+      // compute new future value
+      // in computation, "deposit $100" each month
+      EndBal = principal * 1;  // *** NEEDS FIXING!!!
+      // now compute the interest per year and display it
+      interest = EndBal - principal;  // *** NEEDS FIXING!!!
+      // after computed it, can now display using JavaScript
+      document.writeln("<td class='right'>"+interest.toFixed(2)+"</td>");
+      // deposit every month
+      document.writeln("<td class='center'>"+(deposit*12).toFixed(2)+"</td>");
+      // end balance
+      document.writeln("<td class='right'>"+EndBal.toFixed(2)+"</td>");
+      document.writeln("</tr>");
+      // copy the value to the next year
+      principal = EndBal;
+    }
+    document.writeln( "</table>" );
+  </script>
+  <button type="submit"><a href="Gamification Form.html" >Lets Play a Game </a></button>
+</head>
+</html>
+

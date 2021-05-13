@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<body>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+
+input[type=text] {
+  width: 10%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #1E8449;
+  color: White;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: centre;
+  margin: 24px 0 12px 0;
+}
+
+
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+
+  
+}
+</style>
+
+
+
+<h1>Investment Details</h1>
+<h2>*All fields are mandatory to be filled</h2>
+<h3>Note that: the summation of all the fields can not be more than 100</h3>
+<style>
+h2{font-size:10px}
+h2{color:red;}
+h3{font-size:10px}
+h3{color:red;}
+body {
+  background-image: url('last_page_background.jpg');
+	height: 100%;
+	background-position: center;
+        background-repeat: no-repeat;
+ 	background-size: cover;
+}
+</style>
+
+<form action="/action_page.php">
+<label for="Investment">Choose Investment Type and their Percentage:</label><br><br>
+ 
+<script>
+
+function updateTextInput(val) {
+          document.getElementById('textInput').value=val; 
+          }
+</script>
+<label1 for="gold">Gold (in %):</label1>
+<input type="range" id="gold" name="Gold" min="0" max="100"  onchange="updateTextInput(this.value);">
+<input type="text" id="textInput" value="" required><br><br>
+
+<script>
+
+function updateText1Input(val1) {
+          document.getElementById('textInput1').value=val1; 
+          }
+</script>
+
+<label2 for="equity">Equity (in %):</label2>
+<input type="range" id="equity" name="Equity" min="0" max="100" 
+onchange="updateText1Input(this.value);">
+<input type="text" id="textInput1" value="" required><br><br>
+
+<script>
+
+function updateText2Input(val2) {
+          document.getElementById('textInput2').value=val2; 
+          }
+</script>
+<label2 for="stock">Stock (in %):</label2>
+<input type="range" id="stock" name="Stock" min="0" max="100" onchange="updateText2Input(this.value);">
+<input type="text" id="textInput2" value="" required><br><br>
+
+<script>
+
+function updateText3Input(val3) {
+          document.getElementById('textInput3').value=val3; 
+          }
+</script>
+<label3 for="Mutual fund">Mutual Fund (in %):</label3>
+<input type="range" id="stock" name="Stock" min="0" max="100" onchange="updateText3Input(this.value);">
+<input type="text" id="textInput3" value="" required><br><br>
+
+<script>
+
+function updateText4Input(val4) {
+          document.getElementById('textInput4').value=val4; 
+          }
+</script>
+<label2 for="FD">Stock (in %):</label2>
+<input type="range" id="fd" name="FD" min="0" max="100" onchange="updateText4Input(this.value);">
+<input type="text" id="textInput4" value="" required><br><br>
+
+
+
+<p style="font-size:75%;"> click the "Submit" button to send input to the server.</p>
+<button type="submit">Submit</button>
+
+</form>
+</body>
+
+</html>

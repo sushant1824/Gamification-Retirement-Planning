@@ -1,0 +1,99 @@
+body {
+    background-color: #729DB2;
+    font-family: Raleway;
+    color: #fff;
+  }
+  #content {
+    width: 50vw;
+    height: 50vw;
+    margin: 10% auto;
+    text-align: left;
+  }
+  input[type=range]{
+      -webkit-appearance: none;
+      background: transparent;
+      width: 100%;
+  }
+  
+  input[type=range]:focus {
+      outline: none;
+  }
+  
+  input[type=range]::-webkit-slider-runnable-track {
+    height: 5px;
+    width: 90%;
+    background: rgba(78,78,76,0.2);
+    cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 22px;
+    width: 22px;
+    background-color: rgba(78,78,76,1);
+    border: 3px solid #9cd3d2;
+    margin-top: -9px;
+    border-radius: 50%;
+    transition: .1s ease-in-out;
+  }
+  input[type=range]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+  }
+  
+  input[type=range]:focus::-webkit-slider-runnable-track {
+      background: rgba(78,78,76,0.2);
+  }
+  
+  /**MOZ**/
+  
+  input[type=range]::-moz-range-thumb {
+    -webkit-appearance: none;
+    height: 22px;
+    width: 22px;
+    background-color: rgba(78,78,76,1);
+    border: 3px solid #9cd3d2;
+    margin-top: -9px;
+    border-radius: 50%;
+    transition: .1s ease-in-out;
+  }
+  input[type=range]::-moz-range-track {
+    height: 5px;
+    width: 100%;
+    background: rgba(78,78,76,0.2);
+    cursor: pointer;
+  }
+  input[type=range]::-moz-focus-outer {
+      border: 0;
+  }
+   /**IE**/
+  
+  input[type=range]::-ms-thumb {
+    background-color: rgba(78,78,76,1);
+    border: 2px solid #9cd3d2;
+    border-radius: 50%;
+    height: 11px;
+    width: 11px;
+    transition: .1s ease-in-out;
+    margin-top: 1px;
+  }
+  input[type=range]::-ms-track {
+    height: 5px;
+    width: 100%;
+    background: transparent; 
+    border-color: transparent;
+    color: transparent;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: #9cd3d2;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: #9cd3d2;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: rgba(78,78,76,0.2);
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: rgba(78,78,76,0.2);
+  }
+  
+  

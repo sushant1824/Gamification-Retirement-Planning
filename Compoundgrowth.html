@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a699fa5281.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Compound Investment Calculator</title>
+</head>
+
+<body>
+    <main class="main" id="main">
+        <div class="inputs" id="inputs">
+            <input type="text" class="principal" placeholder="$$$">
+            <input type="text" class="interest" placeholder="%">
+            <input type="text" class="days" placeholder="Days">
+            <button class="update">Update</button>
+            <a href="" id="download" download="chart.jpg">
+                <button class="download">Download</button>
+            </a>
+        </div>
+        <canvas id="chart" width="100" height="100"></canvas>
+    </main>
+
+
+    <script src="assets/js/main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script>
+        // Selectors
+        let canvasChart = document.getElementById("chart");
+        let inputPrincipal = document.querySelector(".principal");
+        let inputInterest = document.querySelector(".interest");
+        let inputDays = document.querySelector(".days");
+        let buttonUpdate = document.querySelector(".update");
+        let buttonDownload = document.querySelector(".download");
+
+        var ctx = document.getElementById("chart").getContext("2d");
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: "line",
+
+            // The data for our dataset
+            data: {
+                labels: [],
+                datasets: [{
+                    label: " Daily Interest",
+                    backgroundColor: "rgb(15, 189, 64, 0.25)",
+                    borderColor: "rgb(15, 189, 64)",
+                    data: []
+                }]
+            },
+
+            // Configuration options go here
+            options: {}
+        });
+
+        // Functions
+
+        function calc(principal, interest, day) {
+            return (principal * (1 + (interest / 100)) ** day).toFixed(2);
+        }
+
+        function removeData(chart) {
+            chart.data.labels.pop();
+            chart.data.datasets.forEach((dataset) => {
+                dataset.data.pop();
+            });
+            chart.update();
+        }
+
+        function addData(chart, label, data) {
+            chart.data.labels.push(label);
+            chart.data.datasets.forEach((dataset) => {
+                dataset.data.push(data);
+            });
+            chart.update();
+        }
+
+        // Code
+
+        buttonUpdate.addEventListener("click", function () {
+            principal = Number(inputPrincipal.value);
+            interest = Number(inputInterest.value);
+            totalDays = Number(inputDays.value);
+
+            document.getElementById("chart").remove();
+
+            // create a new div element
+            const newCanvas = document.createElement("canvas");
+
+            newCanvas.setAttribute("id", "chart");
+            newCanvas.setAttribute("width", "100");
+            newCanvas.setAttribute("height", "100");
+
+            // add the newly created element and its content into the DOM
+            const currentDiv = document.getElementById("inputs");
+
+            currentDiv.parentNode.insertBefore(newCanvas, currentDiv.nextSibling);
+
+            var ctx = document.getElementById("chart").getContext("2d");
+            var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: "line",
+
+                // The data for our dataset
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: " Daily Interest",
+                        backgroundColor: "rgb(15, 189, 64, 0.25)",
+                        borderColor: "rgb(15, 189, 64)",
+                        data: []
+                    }]
+                },
+
+                // Configuration options go here
+                options: {}
+            });
+
+            for (var day = 1; day < totalDays + 1; day++) {
+                addData(chart, "Day " + day, calc(principal, interest, day));
+            }
+        });
+
+        document.getElementById("download").addEventListener('click', function () {
+            var url_base64jp = document.getElementById("chart").toDataURL("image/jpg");
+
+            var a = document.getElementById("download");
+
+            a.href = url_base64jp;
+        });
+    </script>
+</body>
+
+</html>
